@@ -2,44 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
 
-:root {
-  --color-primary: #053947;
-  --color-secondary: #0a83a0;
-  --color-text: #343333;
-  --color-heading: #053947;
-  --color-border: #e5e7eb;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-html {
-  font-family: 'Noto Sans', sans-serif;
-  color: var(--color-text);
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #050a18;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-heading);
-  font-family: 'usual', Georgia, serif;
+body {
+  position: relative;
 }
 
-.prose h1, .prose h2, .prose h3 {
-  color: var(--color-heading);
+body::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at bottom left, rgba(30, 80, 200, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.prose a {
-  color: var(--color-secondary);
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+a {
+  color: inherit;
+  text-decoration: none;
 }

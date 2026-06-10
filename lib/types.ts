@@ -1,261 +1,173 @@
-export interface Asset {
-  uid?: string;
-  url?: string;
-  filename?: string;
-  title?: string;
-  content_type?: string;
-}
-
-export interface CtaButton {
-  button_text?: string;
-  button_url?: string;
-  button_style?: string;
-}
-
-export interface NavDropdownItem {
-  item_label?: string;
-  item_url?: string;
-  item_description?: string;
-}
-
-export interface PrimaryNavItem {
-  nav_label?: string;
-  nav_url?: string;
-  dropdown_items?: NavDropdownItem[];
-}
-
-export interface HeaderCtaButton {
-  button_text?: string;
-  button_url?: string;
-  button_style?: string;
-}
-
-export interface HeaderEntry {
-  title?: string;
-  logo?: Asset;
-  logo_alt_text?: string;
-  logo_link_url?: string;
-  primary_navigation?: PrimaryNavItem[];
-  header_cta_buttons?: HeaderCtaButton[];
-}
-
-export interface FooterLink {
-  link_label?: string;
+export interface NavigationItem {
+  label?: string;
   link_url?: string;
 }
 
-export interface FooterNavColumn {
-  column_heading?: string;
-  footer_links?: FooterLink[];
+export interface CTAButton {
+  button_text?: string;
+  button_url?: string;
+  button_style?: string;
+}
+
+export interface HeaderData {
+  title?: string;
+  site_name?: string;
+  navigation_items?: NavigationItem[];
+  primary_cta?: CTAButton;
+  secondary_cta?: CTAButton;
 }
 
 export interface SocialLink {
-  platform_name?: string;
-  platform_url?: string;
+  platform?: string;
+  profile_url?: string;
+  icon_name?: string;
 }
 
-export interface LegalLink {
-  link_label?: string;
-  link_url?: string;
-}
-
-export interface FooterEntry {
+export interface FooterData {
   title?: string;
-  footer_logo?: Asset;
-  footer_logo_alt_text?: string;
-  footer_navigation_columns?: FooterNavColumn[];
-  social_links?: SocialLink[];
-  legal_links?: LegalLink[];
   copyright_text?: string;
+  social_links?: SocialLink[];
 }
 
-export interface HeroSectionPrimaryCta {
-  button_text?: string;
-  button_url?: string;
-  button_style?: string;
-}
-
-export interface HeroSectionSecondaryCta {
-  button_text?: string;
-  button_url?: string;
-  button_style?: string;
+export interface SpecialtyBadge {
+  badge_label?: string;
+  badge_style?: string;
 }
 
 export interface HeroSection {
-  heading?: string;
-  subheading?: string;
-  hero_image?: Asset;
-  primary_cta?: HeroSectionPrimaryCta;
-  secondary_cta?: HeroSectionSecondaryCta;
+  headline?: string;
+  highlighted_text?: string;
+  subheadline?: string;
+  portrait_photo?: Asset;
+  specialty_badges?: SpecialtyBadge[];
+  primary_cta?: CTAButton;
+  secondary_cta?: CTAButton;
 }
 
-export interface ValuePropositionSection {
-  section_heading?: string;
-  body_content?: string;
-  cta_button?: CtaButton;
+export interface SocialTabLink {
+  tab_label?: string;
+  tab_url?: string;
 }
 
-export interface FeatureCard {
-  card_title?: string;
-  card_description?: string;
-  card_image?: Asset;
-  card_link?: {
-    link_text?: string;
-    link_url?: string;
-  };
+export interface BioSplitSection {
+  section_label?: string;
+  bio_content?: string;
+  bio_photo?: Asset;
+  social_tab_links?: SocialTabLink[];
 }
 
-export interface FeatureCardsGrid {
-  section_heading?: string;
-  section_subheading?: string;
-  feature_cards?: FeatureCard[];
-}
-
-export interface Testimonial {
-  quote?: string;
-  author_name?: string;
-  author_title?: string;
+export interface CareerTimelineEntry {
+  uid?: string;
+  title?: string;
+  role_title?: string;
   company_name?: string;
+  start_date?: string;
+  end_date?: string;
+  current_role?: boolean;
+  description?: string;
+  company_icon_name?: string;
 }
 
-export interface TestimonialsCarousel {
+export interface CareerHistorySection {
   section_heading?: string;
-  testimonials?: Testimonial[];
+  timeline_entries?: CareerTimelineEntry[];
 }
 
-export interface Stat {
-  stat_value?: string;
-  stat_label?: string;
+export interface SkillBadge {
+  uid?: string;
+  title?: string;
+  skill_label?: string;
+  icon_name?: string;
+  icon_color?: string;
 }
 
-export interface StatsBanner {
+export interface ExpertiseIconsSection {
   section_heading?: string;
-  stats?: Stat[];
+  skill_badges?: SkillBadge[];
 }
 
-export interface TwoColumnContentBlock {
-  heading?: string;
-  left_column_content?: string;
-  right_column_content?: string;
-  section_image?: Asset;
-  cta_button?: CtaButton;
+export interface CertificationSlide {
+  certification_title?: string;
+  issuing_organization?: string;
+  issue_date?: string;
+  credential_url?: string;
 }
 
-export interface PartnerLogo {
-  partner_name?: string;
-  partner_logo?: Asset;
-  partner_url?: string;
+export interface CertificationSlides {
+  certification_slide_1?: CertificationSlide;
+  certification_slide_2?: CertificationSlide;
+  certification_slide_3?: CertificationSlide;
+  certification_slide_4?: CertificationSlide;
 }
 
-export interface PartnersLogoStrip {
+export interface CertificationsCarouselSection {
   section_heading?: string;
-  partner_logos?: PartnerLogo[];
+  certification_slides?: CertificationSlides[];
+  view_more_cta?: CTAButton;
 }
 
-export interface AnnouncementBanner {
-  banner_text?: string;
-  banner_cta?: CtaButton;
+export interface Asset {
+  url?: string;
+  title?: string;
+  filename?: string;
+  description?: string;
 }
 
-export interface ResourcesSection {
+export interface TechnologyTag {
+  tag_label?: string;
+}
+
+export interface ProjectCard {
+  uid?: string;
+  title?: string;
+  project_title?: string;
+  description?: string;
+  project_screenshot?: Asset;
+  project_url?: string;
+  technology_tags?: TechnologyTag[];
+}
+
+export interface ProjectsGridSection {
   section_heading?: string;
-  section_subheading?: string;
-  resource_items?: ArticleEntry[];
-  view_all_link?: {
-    link_text?: string;
-    link_url?: string;
-  };
+  project_cards?: ProjectCard[];
+  show_more_cta?: CTAButton;
+}
+
+export interface TagItem {
+  tag_label?: string;
+}
+
+export interface Publication {
+  uid?: string;
+  title?: string;
+  publication_title?: string;
+  publisher?: string;
+  published_date?: string;
+  meta_info?: string;
+  body?: string;
+  publication_url?: string;
+  tag_list?: TagItem[];
+}
+
+export interface PublicationsListSection {
+  section_heading?: string;
+  publications?: Publication[];
 }
 
 export interface PageSection {
-  value_proposition_section?: ValuePropositionSection;
-  feature_cards_grid?: FeatureCardsGrid;
-  testimonials_carousel?: TestimonialsCarousel;
-  stats_banner?: StatsBanner;
-  two_column_content_block?: TwoColumnContentBlock;
-  partners_logo_strip?: PartnersLogoStrip;
-  announcement_banner?: AnnouncementBanner;
-  resources_section?: ResourcesSection;
-}
-
-export interface HomePageEntry {
-  title?: string;
-  url?: string;
   hero_section?: HeroSection;
+  bio_split_section?: BioSplitSection;
+  career_history_section?: CareerHistorySection;
+  expertise_icons_section?: ExpertiseIconsSection;
+  certifications_carousel_section?: CertificationsCarouselSection;
+  projects_grid_section?: ProjectsGridSection;
+  publications_list_section?: PublicationsListSection;
+}
+
+export interface HomePageData {
+  title?: string;
+  url?: string;
   page_sections?: PageSection[];
-  meta_title?: string;
-  meta_description?: string;
-  og_image?: Asset;
-  canonical_url?: string;
-}
-
-export interface ArticleEntry {
-  title?: string;
-  url?: string;
-  subtitle?: string;
-  published_date?: string;
-  author_name?: string;
-  category?: string;
-  featured_image?: Asset;
-  excerpt?: string;
-  body_content?: string;
-  related_articles?: ArticleEntry[];
-  meta_title?: string;
-  meta_description?: string;
-  og_image?: Asset;
-  canonical_url?: string;
-}
-
-export interface ResourceEntry {
-  title?: string;
-  url?: string;
-  resource_type?: string;
-  subtitle?: string;
-  description?: string;
-  thumbnail_image?: Asset;
-  downloadable_file?: Asset;
-  published_date?: string;
-  body_content?: string;
-  cta_button?: CtaButton;
-  meta_title?: string;
-  meta_description?: string;
-  og_image?: Asset;
-  canonical_url?: string;
-}
-
-export interface GeneralPageSection {
-  rich_text_block?: {
-    heading?: string;
-    content?: string;
-  };
-  image_block?: {
-    image?: Asset;
-    caption?: string;
-    alt_text?: string;
-  };
-  cta_block?: {
-    heading?: string;
-    subtext?: string;
-    cta_button?: CtaButton;
-  };
-  accordion_faq_block?: {
-    section_heading?: string;
-    faq_items?: {
-      question?: string;
-      answer?: string;
-    }[];
-  };
-}
-
-export interface GeneralPageEntry {
-  title?: string;
-  url?: string;
-  page_header?: {
-    heading?: string;
-    subheading?: string;
-    header_image?: Asset;
-  };
-  page_sections?: GeneralPageSection[];
   meta_title?: string;
   meta_description?: string;
   og_image?: Asset;
